@@ -9,7 +9,7 @@ About the dataset: Dataset obtained from [here](https://github.com/fivethirtyeig
 The data was imported, cleaned, and analyzed in Python, with visualizations built to compare Fandango's ratings against other platforms. [Full process is outlined here.](https://github.com/adamsami-62/Fandango-Analysis/blob/main/FandangoDataAnalysisProject.ipynb)
 
 **Example Code**
-``python
+```python
 def move_legend(ax, new_loc, **kws):
     old_legend = ax.legend_
     handles = old_legend.legendHandles
