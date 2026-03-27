@@ -9,13 +9,18 @@ About the dataset: Dataset obtained from [here](https://github.com/fivethirtyeig
 The data was imported, cleaned, and analyzed in Python, with visualizations built to compare Fandango's ratings against other platforms. [Full process is outlined here.](https://github.com/adamsami-62/Fandango-Analysis/blob/main/FandangoDataAnalysisProject.ipynb)
 
 **Example Code**
+``python
+def move_legend(ax, new_loc, **kws):
+    old_legend = ax.legend_
+    handles = old_legend.legendHandles
+    labels = [t.get_text() for t in old_legend.get_texts()]
+    title = old_legend.get_title().get_text()
+    ax.legend(handles, labels, loc=new_loc, title=title, **kws)
+```
 ```python
-# Normalizing all rating platforms to Fandango's 0-5 scale for comparison
-df['RT_Norm'] = np.round(df['RottenTomatoes']/20,1)
-df['RTU_Norm'] = np.round(df['RottenTomatoes_User']/20,1)
-df['Meta_Norm'] = np.round(df['Metacritic']/20,1)
-df['Meta_U_Norm'] = np.round(df['Metacritic_User']/2,1)
-df['IMDB_Norm'] = np.round(df['IMDB']/2,1)
+fig, ax = plt.subplots(figsize=(15,6),dpi=150)
+sns.kdeplot(data=norm_scores,clip=[0,5],shade=True,palette='Set1',ax=ax)
+move_legend(ax, "upper left")
 ```
 
 **Example Visualization**
